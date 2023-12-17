@@ -1,0 +1,17 @@
+name: Github Action Container Test
+run-name: ${{ github.actor }} pushed ${{ github.ref }}
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  container-test:
+    name: Container Test
+    runs-on: ubuntu-latest
+    container:
+      image: ".devcontainer/Dockerfile"
+    steps:
+      - name: Hello World
+        run: |
+          echo Hello World
